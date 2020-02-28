@@ -3,7 +3,7 @@ cls
 Title Creating MediaPortal MyLyrics Installer
 
 :: Check for modification
-svn status ..\source | findstr "^M"
+git status ..\source | findstr "^Changes not staged for commit"
 if ERRORLEVEL 1 (
 	echo No modifications in source folder.
 ) else (
