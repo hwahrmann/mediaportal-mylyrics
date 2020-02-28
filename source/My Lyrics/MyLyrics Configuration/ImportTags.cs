@@ -74,8 +74,8 @@ namespace MyLyrics
                     var tag = TagReader.ReadTag(song.FileName);
                     if (tag != null && tag.Lyrics != string.Empty)
                     {
-                        var capArtist = LyricUtil.CapatalizeString(tag.Artist);
-                        var capTitle = LyricUtil.CapatalizeString(tag.Title);
+                        var capArtist = LyricUtil.CapitalizeString(tag.Artist);
+                        var capTitle = LyricUtil.CapitalizeString(tag.Title);
 
                         if (
                             DatabaseUtil.IsSongInLyricsDatabase(MyLyricsUtils.LyricsDB, capArtist, capTitle).Equals(
@@ -128,8 +128,8 @@ namespace MyLyrics
                 {
                     foreach (var tag in _tags)
                     {
-                        var capArtist = LyricUtil.CapatalizeString(tag.Artist);
-                        var capTitle = LyricUtil.CapatalizeString(tag.Title);
+                        var capArtist = LyricUtil.CapitalizeString(tag.Artist);
+                        var capTitle = LyricUtil.CapitalizeString(tag.Title);
                         DatabaseUtil.ReplaceInLyricsDatabase(MyLyricsUtils.LyricsDB, capArtist, capTitle, tag.Lyrics,
                                                              "music tag");
                     }

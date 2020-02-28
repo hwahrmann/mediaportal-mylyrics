@@ -33,8 +33,8 @@ namespace MyLyricsTests
             {
                 site.FindLyrics();
                 var splitLyrics = site.Lyric.Split(' ');
-                Assert.AreEqual("See", splitLyrics[0]);
-                Assert.AreEqual("you", splitLyrics[splitLyrics.Length - 1]);
+                Assert.AreEqual("[Verse", splitLyrics[0]);
+                Assert.AreEqual("you.", splitLyrics[splitLyrics.Length - 1]);
             }
         }
 
@@ -59,7 +59,7 @@ namespace MyLyricsTests
             {
                 site.FindLyrics();
                 var splitLyrics = site.Lyric.Split(' ');
-                Assert.AreEqual("And", splitLyrics[0]);
+                Assert.AreEqual("I've", splitLyrics[0]);
                 Assert.AreEqual("songs.", splitLyrics[splitLyrics.Length - 1]);
             }
         }

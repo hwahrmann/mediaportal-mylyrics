@@ -20,7 +20,7 @@ namespace MyLyrics
           for (var i = 0; i < strippedPrefixesArray.Length; i++)
           {
               var temp = strippedPrefixesArray[i];
-              strippedPrefixesArray[i] = LyricUtil.CapatalizeString(", " + temp.Trim());
+              strippedPrefixesArray[i] = LyricUtil.CapitalizeString(", " + temp.Trim());
           }
 
           return strippedPrefixesArray;

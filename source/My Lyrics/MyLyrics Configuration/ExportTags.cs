@@ -74,8 +74,8 @@ namespace MyLyrics
 
                     foreach (var song in _songs)
                     {
-                        var capArtist = LyricUtil.CapatalizeString(song.Artist);
-                        var capTitle = LyricUtil.CapatalizeString(song.Title);
+                        var capArtist = LyricUtil.CapitalizeString(song.Artist);
+                        var capTitle = LyricUtil.CapitalizeString(song.Title);
 
                         if (DatabaseUtil.IsSongInLyricsDatabase(MyLyricsUtils.LyricsDB, capArtist, capTitle).Equals(DatabaseUtil.LyricFound))
                         {

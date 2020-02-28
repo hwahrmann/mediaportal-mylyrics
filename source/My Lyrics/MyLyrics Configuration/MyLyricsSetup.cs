@@ -504,8 +504,8 @@ namespace MyLyrics
             lbSongsWithLyric2.Text = _mSongsWithLyric.ToString(CultureInfo.InvariantCulture);
             lbLyricsFound2.Text = _mLyricsFound.ToString(CultureInfo.InvariantCulture);
 
-            var capArtist = LyricUtil.CapatalizeString(_mArtist);
-            var capTitle = LyricUtil.CapatalizeString(_mTrack);
+            var capArtist = LyricUtil.CapitalizeString(_mArtist);
+            var capTitle = LyricUtil.CapitalizeString(_mTrack);
 
             DatabaseUtil.WriteToLyricsDatabase(MyLyricsUtils.LyricsDB, MyLyricsUtils.LyricsMarkedDB, capArtist, capTitle, lyricStrings, site);
             lbMessage.Text = GetLyricsFoundBySite();
@@ -563,8 +563,8 @@ namespace MyLyrics
 
             lbLyricsNotFound2.Text = _mLyricsNotFound.ToString(CultureInfo.InvariantCulture);
 
-            var capArtist = LyricUtil.CapatalizeString(artist);
-            var capTitle = LyricUtil.CapatalizeString(title);
+            var capArtist = LyricUtil.CapitalizeString(artist);
+            var capTitle = LyricUtil.CapitalizeString(title);
             if (_mMarkSongsWhenNoLyricFound &&
                 DatabaseUtil.IsSongInLyricsMarkedDatabase(MyLyricsUtils.LyricsMarkedDB, capArtist, capTitle).Equals(
                     DatabaseUtil.LyricNotFound))
@@ -700,8 +700,8 @@ namespace MyLyrics
                         {
                             _mSongsWithLyric += 1;
 
-                            var capArtist = LyricUtil.CapatalizeString(tag.Artist);
-                            var capTitle = LyricUtil.CapatalizeString(tag.Title);
+                            var capArtist = LyricUtil.CapitalizeString(tag.Artist);
+                            var capTitle = LyricUtil.CapitalizeString(tag.Title);
 
                             if (
                                 DatabaseUtil.IsSongInLyricsDatabase(MyLyricsUtils.LyricsDB, capArtist, capTitle).

@@ -192,7 +192,7 @@ namespace LyricsEngine.LRC
             {
                 _artist = line.Substring(m.Index + m.Length);
                 _artist =
-                    LyricUtil.CapatalizeString(_artist.Substring(0, _artist.LastIndexOf("]", StringComparison.Ordinal)));
+                    LyricUtil.CapitalizeString(_artist.Substring(0, _artist.LastIndexOf("]", StringComparison.Ordinal)));
                 return true;
             }
 
@@ -200,7 +200,7 @@ namespace LyricsEngine.LRC
             {
                 _title = line.Substring(m.Index + m.Length);
                 _title =
-                    LyricUtil.CapatalizeString(_title.Substring(0, _title.LastIndexOf("]", StringComparison.Ordinal)));
+                    LyricUtil.CapitalizeString(_title.Substring(0, _title.LastIndexOf("]", StringComparison.Ordinal)));
                 return true;
             }
 
@@ -208,7 +208,7 @@ namespace LyricsEngine.LRC
             {
                 _album = line.Substring(m.Index + m.Length);
                 _album =
-                    LyricUtil.CapatalizeString((_album.Substring(0, _album.LastIndexOf("]", StringComparison.Ordinal))));
+                    LyricUtil.CapitalizeString((_album.Substring(0, _album.LastIndexOf("]", StringComparison.Ordinal))));
                 return true;
             }
 
@@ -216,7 +216,7 @@ namespace LyricsEngine.LRC
             {
                 _offset = line.Substring(m.Index + m.Length);
                 _offset =
-                    LyricUtil.CapatalizeString(
+                    LyricUtil.CapitalizeString(
                         (_offset.Substring(0, _offset.LastIndexOf("]", StringComparison.Ordinal))));
                 return true;
             }

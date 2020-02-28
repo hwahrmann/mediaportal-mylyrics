@@ -17,8 +17,8 @@ namespace MyLyrics
 
         internal static int IsSongInLyricsDatabase(LyricsDatabase lyricDB, string artist, string title)
         {
-            var capatalizedArtist = LyricUtil.CapatalizeString(artist);
-            var capatalizedTitle = LyricUtil.CapatalizeString(title);
+            var capatalizedArtist = LyricUtil.CapitalizeString(artist);
+            var capatalizedTitle = LyricUtil.CapitalizeString(title);
 
             var key = CorrectKeyFormat(capatalizedArtist, capatalizedTitle);
 
@@ -34,15 +34,15 @@ namespace MyLyrics
 
         internal static int IsSongInLyricsMarkedDatabase(LyricsDatabase lyricMarkedDB, string artist, string title)
         {
-            var key = CorrectKeyFormat(LyricUtil.CapatalizeString(artist), LyricUtil.CapatalizeString(title));
+            var key = CorrectKeyFormat(LyricUtil.CapitalizeString(artist), LyricUtil.CapitalizeString(title));
 
             return lyricMarkedDB.ContainsKey(key) ? LyricMarked : LyricNotFound;
         }
 
         internal static int IsSongInLyricsDatabaseAsLRC(LyricsDatabase lyricDB, string artist, string title)
         {
-            var capatalizedArtist = LyricUtil.CapatalizeString(artist);
-            var capatalizedTitle = LyricUtil.CapatalizeString(title);
+            var capatalizedArtist = LyricUtil.CapitalizeString(artist);
+            var capatalizedTitle = LyricUtil.CapitalizeString(title);
 
             var key = CorrectKeyFormat(capatalizedArtist, capatalizedTitle);
 

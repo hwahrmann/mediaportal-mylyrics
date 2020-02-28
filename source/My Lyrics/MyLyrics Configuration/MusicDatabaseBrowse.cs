@@ -178,8 +178,8 @@ namespace MyLyrics
                     lvi.SubItems[3].Text = "OK";
                     lvi.EnsureVisible();
 
-                    var capArtist = LyricUtil.CapatalizeString(artist);
-                    var capTitle = LyricUtil.CapatalizeString(title);
+                    var capArtist = LyricUtil.CapitalizeString(artist);
+                    var capTitle = LyricUtil.CapitalizeString(title);
 
                     DatabaseUtil.WriteToLyricsDatabase(MyLyricsUtils.LyricsDB, MyLyricsUtils.LyricsMarkedDB, capArtist, capTitle, lyricStrings, site);
                     DatabaseUtil.SerializeLyricDB();
@@ -212,8 +212,8 @@ namespace MyLyrics
                     lvi.SubItems[3].Text = "miss";
                     lvi.EnsureVisible();
 
-                    var capArtist = LyricUtil.CapatalizeString(artist);
-                    var capTitle = LyricUtil.CapatalizeString(title);
+                    var capArtist = LyricUtil.CapitalizeString(artist);
+                    var capTitle = LyricUtil.CapitalizeString(title);
 
                     if (
                         DatabaseUtil.IsSongInLyricsMarkedDatabase(MyLyricsUtils.LyricsMarkedDB, capArtist, capTitle).Equals(DatabaseUtil.LyricNotFound))
@@ -373,8 +373,8 @@ namespace MyLyrics
 
             foreach (var song in songs)
             {
-                var capatalizedArtist = LyricUtil.CapatalizeString(song.Artist);
-                var capatalizedTitle = LyricUtil.CapatalizeString(song.Title);
+                var capatalizedArtist = LyricUtil.CapitalizeString(song.Artist);
+                var capatalizedTitle = LyricUtil.CapitalizeString(song.Title);
 
                 var lvi = new ListViewItem(capatalizedTitle);
                 lvi.Tag = capatalizedTitle;

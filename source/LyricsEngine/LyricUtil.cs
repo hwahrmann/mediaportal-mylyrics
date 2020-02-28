@@ -15,7 +15,7 @@ namespace LyricsEngine
     private static readonly string[] ParenthesesAndAlike = { "(", "[", "{" };
 
     // capatalize string and make ready for XML
-    public static string CapatalizeString(string s)
+    public static string CapitalizeString(string s)
     {
       s = s.Replace("\"", "");
 

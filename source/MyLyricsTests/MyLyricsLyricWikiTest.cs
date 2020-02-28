@@ -33,7 +33,7 @@ namespace MyLyricsTests
                 site.FindLyrics();
                 var splitLyrics = site.Lyric.Split(' ');
                 Assert.AreEqual("See", splitLyrics[0]);
-                Assert.AreEqual("you", splitLyrics[splitLyrics.Length - 1]);
+                Assert.AreEqual("without", splitLyrics[splitLyrics.Length - 2]);
             }
         }
 

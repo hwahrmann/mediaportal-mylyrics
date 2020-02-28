@@ -24,7 +24,7 @@ namespace LyricsEngine
         public LyricsWebClient()
         {
             Timeout = -1;
-            UserAgent = @"Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.2; .NET CLR 1.0.3705;)";
+            UserAgent = @"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.88 Safari/537.36";
             CookieContainer = new CookieContainer();
         }
 
@@ -43,6 +43,13 @@ namespace LyricsEngine
 
         protected override WebRequest GetWebRequest(Uri address)
         {
+            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls
+                                                   | (SecurityProtocolType)3072 // TLS12
+                                                   | SecurityProtocolType.Ssl3;
+
+            // Skip validation of SSL/TLS certificate
+            ServicePointManager.ServerCertificateValidationCallback = delegate { return true; };
+            
             var request = base.GetWebRequest(address);
 
             if (request != null && request.GetType() == typeof (HttpWebRequest))

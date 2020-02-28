@@ -33,21 +33,21 @@ namespace MyLyricsTests
             {
                 site.FindLyrics();
                 var splitLyrics = site.Lyric.Split(' ');
-                Assert.AreEqual("Now", splitLyrics[0]);
-                Assert.AreEqual("satis-uh-fy", splitLyrics[splitLyrics.Length - 1]);
+                Assert.AreEqual("(Dedicate", splitLyrics[0]);
+                Assert.AreEqual("to", splitLyrics[splitLyrics.Length - 2]);
             }
         }
 
         [TestMethod]
         public void TestLyricsNet2()
         {
-            var site = new LyricsNet("Eric Clapton", "Baby What's wrong", new ManualResetEvent(false), 10000);
+            var site = new LyricsNet("Eric Clapton", "I shot the Sheriff", new ManualResetEvent(false), 10000);
             if (site.SiteActive())
             {
                 site.FindLyrics();
                 var splitLyrics = site.Lyric.Split(' ');
-                Assert.AreEqual("Oh", splitLyrics[0]);
-                Assert.AreEqual("verse", splitLyrics[splitLyrics.Length - 1]);
+                Assert.AreEqual("I", splitLyrics[0]);
+                Assert.AreEqual("no", splitLyrics[splitLyrics.Length - 1]);
             }
         }
 
@@ -59,8 +59,8 @@ namespace MyLyricsTests
             {
                 site.FindLyrics();
                 var splitLyrics = site.Lyric.Split(' ');
-                Assert.AreEqual("I", splitLyrics[0]);
-                Assert.AreEqual("worldwide", splitLyrics[splitLyrics.Length - 3]);
+                Assert.AreEqual("I've", splitLyrics[0]);
+                Assert.AreEqual("songs", splitLyrics[splitLyrics.Length - 1]);
             }
         }
 

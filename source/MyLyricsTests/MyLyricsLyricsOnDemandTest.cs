@@ -47,7 +47,7 @@ namespace MyLyricsTests
                 site.FindLyrics();
                 var splitLyrics = site.Lyric.Split(' ');
                 Assert.AreEqual("I", splitLyrics[0]);
-                Assert.AreEqual("no.", splitLyrics[splitLyrics.Length - 1]);
+                Assert.AreEqual("oh", splitLyrics[splitLyrics.Length - 4]);
             }
         }
 

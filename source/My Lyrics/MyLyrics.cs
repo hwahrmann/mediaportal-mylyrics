@@ -251,8 +251,8 @@ namespace MyLyrics
                         LRCLinesTotal = 0;
                         TagRoundFinished = 0;
 
-                        _artist = LyricUtil.CapatalizeString(GUIPropertyManager.GetProperty("#Play.Current.Artist"));
-                        _title = LyricUtil.CapatalizeString(GUIPropertyManager.GetProperty("#Play.Current.Title"));
+                        _artist = LyricUtil.CapitalizeString(GUIPropertyManager.GetProperty("#Play.Current.Artist"));
+                        _title = LyricUtil.CapitalizeString(GUIPropertyManager.GetProperty("#Play.Current.Title"));
 
                         if (!_lyricText.Equals(string.Empty))
                         {
@@ -455,11 +455,11 @@ namespace MyLyrics
             _artist = _artist.Replace("| ", "");
             _artist = _artist.Replace(" |", "");
             _artist = _artist.Replace("''", "'");
-            _artist = LyricUtil.CapatalizeString(_artist);
+            _artist = LyricUtil.CapitalizeString(_artist);
 
             _title = _currentTrackTag.Title.Trim();
             _title = _title.Replace("''", "'");
-            _title = LyricUtil.CapatalizeString(_title);
+            _title = LyricUtil.CapitalizeString(_title);
         }
 
         private bool CheckReallyEditLRCBeforeEdit()
@@ -1108,6 +1108,7 @@ namespace MyLyrics
 
         private void ShowLrcPick()
         {
+            /*
             if (String.IsNullOrEmpty(_artist)) return;
 
             if (_selectedScreen != (int) MyLyricsSettings.Screen.LRCPick)
@@ -1191,6 +1192,7 @@ namespace MyLyrics
 
                 Process();
             }
+            */
         }
 
 
@@ -1451,8 +1453,8 @@ namespace MyLyrics
             }
             else if (g_Player.IsRadio)
             {
-                var newArtist = LyricUtil.CapatalizeString(GUIPropertyManager.GetProperty("#Play.Current.Artist"));
-                var newTitle = LyricUtil.CapatalizeString(GUIPropertyManager.GetProperty("#Play.Current.Title"));
+                var newArtist = LyricUtil.CapitalizeString(GUIPropertyManager.GetProperty("#Play.Current.Artist"));
+                var newTitle = LyricUtil.CapitalizeString(GUIPropertyManager.GetProperty("#Play.Current.Title"));
 
                 if (string.IsNullOrEmpty(GUIPropertyManager.GetProperty("#Play.Current.Artist"))
                     || string.IsNullOrEmpty(GUIPropertyManager.GetProperty("#Play.Current.Title")))
@@ -1806,8 +1808,8 @@ namespace MyLyrics
                 {
                     var lyric = new StringBuilder();
 
-                    var artist = LyricUtil.CapatalizeString(_artist);
-                    var title = LyricUtil.CapatalizeString(_title);
+                    var artist = LyricUtil.CapitalizeString(_artist);
+                    var title = LyricUtil.CapitalizeString(_title);
 
                     lyric.AppendLine(string.Format("[ar:{0}]", artist));
                     lyric.AppendLine(string.Format("[ti:{0}]", title));
@@ -1848,61 +1850,7 @@ namespace MyLyrics
 
                     _selectedScreen = (int) MyLyricsSettings.Screen.LRC;
                     ShowLyricOnScreen(_lyricText, "MediaPortal");
-
-                    // Upload LRC to LrcFinder if user has accepted in configuration
-                    if (UploadLrcToLrcFinder && !AlwaysAskUploadLrcToLrcFinder)
-                    {
-                        UploadLrcFile(_lyricText);
-                    }
-                    else if (AlwaysAskUploadLrcToLrcFinder || !ConfirmedNoUploadLrcToLrcFinder)
-                    {
-                        var dlgYesNo =
-                            (GUIDialogYesNo) GUIWindowManager.GetWindow((int) Window.WINDOW_DIALOG_YES_NO);
-                        if (dlgYesNo != null)
-                        {
-                            dlgYesNo.Reset();
-
-                            dlgYesNo.SetHeading("Upload to LRCFinder?");
-
-                            dlgYesNo.SetLine(1, "Upload this and future created");
-                            dlgYesNo.SetLine(2, "LRC files to LrcFinder?");
-
-                            dlgYesNo.DoModal(GetID);
-
-                            if (dlgYesNo.IsConfirmed)
-                            {
-                                UploadLrcFile(_lyricText);
-
-                                UploadLrcToLrcFinder = true;
-                                
-                                SettingManager.SetParamAsBool(SettingManager.UploadLrcToLrcFinder, true);
-                            }
-                            else
-                            {
-                                ConfirmedNoUploadLrcToLrcFinder = true;
-                                
-                                SettingManager.SetParamAsBool(SettingManager.ConfirmedNoUploadLrcToLrcFinder, true);
-                            }
-                        }
-                    }
                 }
-            }
-        }
-
-
-        private void UploadLrcFile(string lrcFile)
-        {
-            var lrcUploaded = LrcFinder.SaveLrcWithGuid(lrcFile, _guid);
-
-            if (lrcUploaded)
-            {
-                const string status = "Your LRC was successfully uploaded";
-                GUIControl.SetControlLabel(GetID, (int) GUILRCControls.ControlLrcPickStatus, status);
-            }
-            else
-            {
-                const string status = "LrcFinder could not be reached";
-                GUIControl.SetControlLabel(GetID, (int) GUILRCControls.ControlLrcPickStatus, status);
             }
         }
 
@@ -2148,8 +2096,8 @@ namespace MyLyrics
 
         private void SaveLyricToDatabase(string artist, string title, string lyric, string site, bool lrc)
         {
-            var capArtist = LyricUtil.CapatalizeString(artist);
-            var capTitle = LyricUtil.CapatalizeString(title);
+            var capArtist = LyricUtil.CapitalizeString(artist);
+            var capTitle = LyricUtil.CapitalizeString(title);
 
             if (DatabaseUtil.IsSongInLyricsDatabase(LyricsDb, capArtist, capTitle).Equals(DatabaseUtil.LyricNotFound))
             {

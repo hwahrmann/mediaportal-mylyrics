@@ -126,8 +126,8 @@ namespace MyLyrics
         /// <param name="lyricsItem">lyrics item</param>
         private void AddSong(LyricsItem lyricsItem)
         {
-            var artist = LyricUtil.CapatalizeString(lyricsItem.Artist);
-            var title = LyricUtil.CapatalizeString(lyricsItem.Title);
+            var artist = LyricUtil.CapitalizeString(lyricsItem.Artist);
+            var title = LyricUtil.CapitalizeString(lyricsItem.Title);
 
             // add artist, if it doesn't exists
             if (!treeView.Nodes.ContainsKey(artist))
@@ -255,8 +255,8 @@ namespace MyLyrics
 
                 if (artist.Length != 0 && title.Length != 0)
                 {
-                    _mCurrentArtist = LyricUtil.CapatalizeString(artist);
-                    _mCurrentTitle = LyricUtil.CapatalizeString(title);
+                    _mCurrentArtist = LyricUtil.CapitalizeString(artist);
+                    _mCurrentTitle = LyricUtil.CapitalizeString(title);
 
                     if (
                         DatabaseUtil.IsSongInLyricsDatabase(CurrentLyricsDatabase, _mCurrentArtist, _mCurrentTitle).Equals(DatabaseUtil.LyricFound))
@@ -280,7 +280,7 @@ namespace MyLyrics
             else if (treeView.SelectedNode != null)
             {
                 var artist = treeView.SelectedNode.Text;
-                _mCurrentArtist = LyricUtil.CapatalizeString(artist);
+                _mCurrentArtist = LyricUtil.CapitalizeString(artist);
                 btSearchSingle.Enabled = false;
             }
             else
@@ -307,8 +307,8 @@ namespace MyLyrics
 
         private void btSave_Click(object sender, EventArgs e)
         {
-            var capArtist = LyricUtil.CapatalizeString(_mCurrentArtist);
-            var capTitle = LyricUtil.CapatalizeString(_mCurrentTitle);
+            var capArtist = LyricUtil.CapitalizeString(_mCurrentArtist);
+            var capTitle = LyricUtil.CapitalizeString(_mCurrentTitle);
 
             var lyrics = LyricUtil.FixLyrics(tbLyrics.Text);
 
@@ -331,7 +331,7 @@ namespace MyLyrics
             var lrc = new SimpleLRC(capArtist, capTitle, lyrics);
             if (lrc.IsValid && _parentMyLyricsSetup.cbUploadLrcAutomatically.Checked)
             {
-                LrcFinder.SaveLrcWithGuid(lyrics, _parentMyLyricsSetup.MGuid);
+                //LrcFinder.SaveLrcWithGuid(lyrics, _parentMyLyricsSetup.MGuid);
             }
 
             btSave.Enabled = false;
@@ -379,7 +379,7 @@ namespace MyLyrics
             {
                 var title = treeView.SelectedNode.Text;
                 _mCurrentArtist = treeView.SelectedNode.Parent.Text;
-                _mCurrentTitle = LyricUtil.CapatalizeString(title);
+                _mCurrentTitle = LyricUtil.CapitalizeString(title);
 
                 if (IsSelectedLyricLRC(_mCurrentArtist, title))
                 {
@@ -400,8 +400,8 @@ namespace MyLyrics
 
         internal void AddNewSongToDatabase(string artist, string title, string lyrics)
         {
-            _mCurrentArtist = LyricUtil.CapatalizeString(artist);
-            _mCurrentTitle = LyricUtil.CapatalizeString(title);
+            _mCurrentArtist = LyricUtil.CapitalizeString(artist);
+            _mCurrentTitle = LyricUtil.CapitalizeString(title);
 
             if (AddSong(_mCurrentArtist, _mCurrentTitle, lyrics, "Manual added"))
             {
@@ -605,8 +605,8 @@ namespace MyLyrics
                 lyrics = lyrics.Trim();
                 textReader.Close();
 
-                var capArtist = LyricUtil.CapatalizeString(fileStringArtist);
-                var capTitle = LyricUtil.CapatalizeString(fileStringTitle);
+                var capArtist = LyricUtil.CapitalizeString(fileStringArtist);
+                var capTitle = LyricUtil.CapitalizeString(fileStringTitle);
 
                 return AddSong(capArtist, capTitle, lyrics, "Text file") ? (int) TypeOfLyrics.Normal : (int) TypeOfLyrics.None;
             }
